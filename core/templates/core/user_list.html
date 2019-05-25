@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load core_extras %}
 
 {% block content %}
     <div class="container">
@@ -13,6 +14,8 @@
                     <th scope="col">Last name</th>
                     <th scope="col">Birthday</th>
                     <th scope="col">Random number</th>
+                    <th scope="col">Allowed</th>
+                    <th scope="col">BizzFuzz</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +27,8 @@
                         <td>{{ user.last_name }}</td>
                         <td>{{ user.birthday|date }}</td>
                         <td>{{ user.random_number }}</td>
+                        <td>{{ user.get_age|allowed }}</td>
+                        <td>{{ user.random_number|bizzfuzz }}</td>
                     </tr>
                 {% empty %}
                     <tr>
