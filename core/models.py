@@ -5,4 +5,5 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    pass
+    birthday = models.DateField(blank=True, null=True)
+    random_number = models.IntegerField(blank=True, null=True)
