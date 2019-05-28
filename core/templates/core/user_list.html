@@ -5,6 +5,8 @@
     <div class="container">
         <h1>User list</h1>
 
+        <a href="{% url "user_create" %}" class="btn btn-primary">Create user</a>
+
         <table class="table">
             <thead>
                 <tr>
@@ -16,6 +18,7 @@
                     <th scope="col">Random number</th>
                     <th scope="col">Allowed</th>
                     <th scope="col">BizzFuzz</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +32,11 @@
                         <td>{{ user.random_number }}</td>
                         <td>{{ user.get_age|allowed }}</td>
                         <td>{{ user.random_number|bizzfuzz }}</td>
+                        <td>
+                            <a href="{% url "user_detail" user.id  %}" class="btn btn-primary">details</a>
+                            <a href="{% url "user_edit" user.id  %}" class="btn btn-warning">edit</a>
+                            <a href="{% url "user_delete" user.id  %}" class="btn btn-danger">delete</a>
+                        </td>
                     </tr>
                 {% empty %}
                     <tr>

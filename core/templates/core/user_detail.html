@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load core_extras %}
+
+{% block content %}
+    <div class="container">
+        <h1>User details</h1>
+
+        <p>Username: <strong>{{ user.username }}</strong></p>
+        <p>First name: <strong>{{ user.first_name }}</strong></p>
+        <p>Last name: <strong>{{ user.last_name }}</strong></p>
+        <p>Birthday: <strong>{{ user.birthday|date }}</strong></p>
+        <p>Random number: <strong>{{ user.random_number }}</strong></p>
+        <p>Allowed: <strong>{{ user.get_age|allowed }}</strong></p>
+        <p>BizzFuzz: <strong>{{ user.random_number|bizzfuzz }}</strong></p>
+
+        <a href="{% url "user_edit" user.id  %}" class="btn btn-primary">edit</a>
+        <a href="{% url "user_delete" user.id  %}" class="btn btn-danger">delete</a>
+        <a href="{% url "user_list"  %}" class="btn">return to user list</a>
+
+    </div>
+
+{% endblock %}

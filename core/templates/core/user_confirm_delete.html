@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load core_extras %}
+
+{% block content %}
+    <div class="container">
+        <h1>Confirm delete</h1>
+
+        <form method="post">{% csrf_token %}
+            Are you sure you want to delete this user?
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="{% url "user_list"  %}" class="btn">return to user list</a>
+            </div>
+        </form>
+
+    </div>
+
+{% endblock %}
